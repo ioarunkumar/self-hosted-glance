@@ -32,6 +32,10 @@
 
     - size: full
       widgets:
+        - type: iframe
+          source: ${SOURCE_MANAGER_URL}
+          height: 520
+
         - type: group
           widgets:
             - type: hacker-news
@@ -44,6 +48,8 @@
             - UCsBjURrPoezykLs9EqgamOA # Fireship
             - UCBJycsmduvYEL83R_U4JriQ # Marques Brownlee
             - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
+
+        - $include: user-sources.yml
 
         - type: group
           widgets:

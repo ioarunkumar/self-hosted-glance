@@ -1,4 +1,17 @@
 services:
+  source-manager:
+    build: ./source-manager
+    restart: unless-stopped
+    environment:
+      SOURCE_MANAGER_PASSWORD: ${SOURCE_MANAGER_PASSWORD:?Set SOURCE_MANAGER_PASSWORD in .env}
+      DATA_PATH: /data/sources.json
+      GENERATED_CONFIG: /app/config/user-sources.yml
+    volumes:
+      - ./config:/app/config
+      - ./data:/data
+    ports:
+      - 8787:8787
+
   glance:
     container_name: glance
     image: glanceapp/glance
